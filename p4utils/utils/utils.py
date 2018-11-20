@@ -155,7 +155,7 @@ def compile_p4_to_bmv2(config):
         log_error("Unknown P4 file %s" % program_file)
         sys.exit(1)
 
-    print (compiler + ' %s' % ' '.join(compiler_args))
+    print(compiler + ' %s' % ' '.join(compiler_args))
     return_value = run_command(compiler + ' %s' % ' '.join(compiler_args))
 
     if return_value != 0:
@@ -196,7 +196,7 @@ def compile_all_p4(config):
         switches = topo.get("switches", None)
         if switches:
             # make a set with all the P4 programs to compile
-            for switch_name, sw_attributes in switches.iteritems():
+            for switch_name, sw_attributes in switches.items():
                 #merge defaults with switch attributes
                 switch_conf = default_config.copy()
                 switch_conf.update(sw_attributes)

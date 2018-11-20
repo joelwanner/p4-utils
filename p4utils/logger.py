@@ -20,7 +20,7 @@ def debug_medium(self, message, *args, **kws):
 def debug_high(self, message, *args, **kws):
     # Yes, logger takes its '*args' as 'args'.
     if self.isEnabledFor(logging.DEBUG_HIGH):
-        self._log(logging.DEBUG_HIGH, message, args, **kws)
+         self._log(logging.DEBUG_HIGH, message, args, **kws)
 
 def debug_temporal(self, message, *args, **kws):
     # Yes, logger takes its '*args' as 'args'.
@@ -72,4 +72,3 @@ handler.setFormatter(fmt)
 
 #handler.setLevel(logging.WARNING)
 log.addHandler(handler)
-

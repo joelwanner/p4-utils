@@ -159,7 +159,7 @@ class TopologyDB(object):
         interfaces_to_nodes = {}
         interfaces_to_port = {}
 
-        for port, port_id in node.ports.iteritems():
+        for port, port_id in node.ports.items():
             interfaces_to_port[port.name] = port_id
 
         for itf in node.intfList():
@@ -255,7 +255,7 @@ class NetworkGraph(nx.Graph):
         self.load_graph_from_db()
 
     def load_graph_from_db(self):
-        for node, attributes in self.topology_db._original_network.iteritems():
+        for node, attributes in self.topology_db._original_network.items():
             if node not in self.nodes():
                 self.add_node(node, attributes)
 
@@ -450,7 +450,7 @@ class Topology(TopologyDBP4):
         Returns:
             interface name (str)
         """
-        return self[name]["interfaces_to_node"].keys()[0]
+        return list(self[name]["interfaces_to_node"].keys())[0]
 
     def get_p4switch_id(self, sw_name):
         """Returns the ID of a P4 switch.
@@ -532,7 +532,7 @@ class Topology(TopologyDBP4):
         if self.is_p4switch(p4switch) and self[p4switch].get(cpu_node, None):
             return self[p4switch][cpu_node].get('intf')
         else:
-            print "Switch %s has no cpu port" % p4switch
+            print("Switch %s has no cpu port" % p4switch)
             return None
 
 
@@ -550,7 +550,7 @@ class Topology(TopologyDBP4):
         if self.is_p4switch(p4switch) and self[p4switch].get(cpu_node, None):
             return self[p4switch]['interfaces_to_port'][self[p4switch][cpu_node].get('intf')]
         else:
-            print "Switch %s has no cpu port" % p4switch
+            print("Switch %s has no cpu port" % p4switch)
             return None
 
 if __name__ == '__main__':
