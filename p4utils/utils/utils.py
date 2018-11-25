@@ -150,7 +150,7 @@ def compile_p4_to_bmv2(config):
             sys.exit()
 
         compiler_args.append('"%s"' % program_file)
-        compiler_args.append('-o "%s"' % output)
+        compiler_args.append('-o "%s"' % output_file)
     else:
         log_error("Unknown P4 file %s" % program_file)
         sys.exit(1)
