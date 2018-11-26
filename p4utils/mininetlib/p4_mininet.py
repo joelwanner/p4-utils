@@ -126,6 +126,7 @@ class P4Switch(Switch):
         self.log_file = log_file
         if self.log_file is None:
             self.log_file = "/tmp/p4s.{}.log".format(self.name)
+        self.log_file = "/dev/null"
         if self.log_console:
             self.output = open(self.log_file, 'w')
         self.thrift_port = thrift_port
