@@ -122,12 +122,12 @@ class SimpleSwitchAPI(runtime_API.RuntimeAPI):
     @handle_bad_input
     def get_time_elapsed(self):
         "Get time elapsed (in microseconds) since the switch started: get_time_elapsed"
-        print self.sswitch_client.get_time_elapsed_us()
+        return self.sswitch_client.get_time_elapsed_us()
 
     @handle_bad_input
     def get_time_since_epoch(self):
         "Get time elapsed (in microseconds) since the switch clock's epoch: get_time_since_epoch"
-        print self.sswitch_client.get_time_since_epoch_us()
+        return self.sswitch_client.get_time_since_epoch_us()
 
 
 if __name__ == "__main__":
